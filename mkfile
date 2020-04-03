@@ -11,6 +11,8 @@ FO=squint.$O alloc.$O bltin.$O compile.$O const.$O declare.$O error.$O \
 SO=space.$O
 LIBO=libio.$O liblib.$O
 
+CFLAGS=-p
+
 $O.out: $FO $CO $SO $LIBO
 	$LD $prereq
 
