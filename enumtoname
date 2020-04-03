@@ -1,0 +1,15 @@
+#!/bin/rc
+
+switch($#*){
+case 1
+	;
+case *
+	echo >[1=2] usage: enumtoname enumname
+	exit usage
+}
+
+echo 'char *'$1'name[]={'
+sed -n '/typedef.*'$1'/,/^}'$1'/p' |
+	grep '^	' |
+	sed 's/,$//;s/	\(.*\)/	"\1",/'
+echo '};'
